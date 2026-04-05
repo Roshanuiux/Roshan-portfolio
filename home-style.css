@@ -1,0 +1,1503 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    overflow-y: auto; /* സ്ക്രോളിംഗ് അനുവദിക്കുക */
+    overflow-x: hidden;
+    color: #000000;
+}
+
+.bg-grid {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+    background-size: 80px 80px;
+    z-index: -1;
+}
+
+
+
+
+.tag-strap {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 16px;
+    height: 35vh;
+    background: linear-gradient(90deg, #111 0%, #222 50%, #111 100%);
+    z-index: 5;
+    box-shadow: inset -1px 0 2px rgba(255, 255, 255, 0.05);
+}
+
+
+/* ടാഗ് ഹോൾഡർ ക്ലിപ്പ് */
+.card-holder {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 45px;
+    height: 30px;
+    background: #222;
+    border-radius: 8px;
+    border: 2px solid #333;
+    z-index: 11;
+}
+
+/* ലോഗോ സ്റ്റൈൽ - ടാഗിനുള്ളിൽ */
+.card-logo {
+    font-family: 'Koulen', cursive;
+    font-size: 2.5rem;
+    color: #FFB000;
+    line-height: 1;
+    transform: rotate(-90deg);
+}
+
+.card {
+    /* ടാഗിന്റെ മെയിൻ ബോഡി */
+    width: 320px;
+    height: 480px;
+    background: #fffdfd;
+    border-radius: 20px;
+    position: relative;
+    transform-style: preserve-3d;
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    margin-top: 50px;
+    /* സ്ട്രാപ്പിന് സ്ഥലം കൊടുക്കാൻ */
+}
+
+/* .card-section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 2000px;
+    
+} */
+
+.card-section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 2000px;
+    position: sticky; /* ഇതാണ് പ്രധാനം */
+    top: 0;
+    z-index: 1;
+}
+
+
+.parallax-bg-text {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    z-index: 0;
+    pointer-events: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* കൃത്യം നടുവിൽ ഉറപ്പിച്ചു നിർത്താൻ */
+}
+
+.parallax-bg-text h1 {
+    font-size: 18vw;
+    font-weight: 900;
+    opacity: 0.05;
+    /* ബാക്ക്ഗ്രൗണ്ടിൽ അലിഞ്ഞു നിൽക്കാൻ ഒപ്പാസിറ്റി കുറച്ചു */
+    letter-spacing: -0.5vw;
+}
+
+.card-container {
+    z-index: 10;
+    width: 400px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    width: 320px;
+    height: 480px;
+    background: #ffffff;
+    /* കടും കറുപ്പ് */
+    border-radius: 24px;
+    position: relative;
+    transform-style: preserve-3d;
+
+    /* കാർഡിനെ വേർതിരിച്ചു കാണിക്കാൻ ഈ ബോർഡർ സഹായിക്കും */
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    /* നല്ലൊരു ഡെപ്ത് നൽകുന്ന ഷാഡോ */
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8),
+        0 0 20px rgba(255, 255, 255, 0.02);
+
+    margin-top: 60px;
+    z-index: 10;
+}
+
+.card-holder {
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 12px;
+    background: #333;
+    border-radius: 5px;
+}
+
+.card-inner {
+    padding: 25px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-logo {
+    font-family: 'Koulen';
+    font-size: 2.5rem;
+    color: #FFB000;
+}
+
+.tag-label {
+    font-size: 0.7rem;
+    color: #666;
+    font-weight: bold;
+}
+
+
+.user-img-box {
+    width: 100%;
+    height: 260px;
+    background: #fdd407;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+
+.user-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(1);
+}
+
+.role-tag {
+    font-size: 0.8rem;
+    color: #888;
+    font-weight: bold;
+}
+
+.main-title {
+    font-size: 2.2rem;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 30px 6%;
+    display: flex;
+    justify-content: space-between;
+    z-index: 100;
+}
+
+.talk-btn {
+    width: 120px;
+    /* വലിപ്പം നിയന്ത്രിക്കാൻ ഇത് മാറ്റാം */
+    height: 60px;
+    /* വിഡ്ത്തും ഹൈറ്റും തുല്യമായിരിക്കണം */
+    background: #000000;
+    color: #ffffff;
+    border: none;
+    border-radius: 15px;
+    /* പൂർണ്ണമായും വട്ടത്തിലാക്കാൻ 50% നൽകുക */
+    font-weight: bold;
+    font-size: 0.8rem;
+    /* അക്ഷരങ്ങളുടെ വലിപ്പം കുറച്ചു */
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    line-height: 1.2;
+    padding: 10px;
+    /* പാഡിംഗ് കുറച്ചു */
+    transition: transform 0.3s ease;
+}
+
+/* മൗസ് വെക്കുമ്പോൾ ചെറുതായി വലുതാകാൻ */
+.talk-btn:hover {
+    transform: scale(1.05);
+}
+
+
+
+.about-section {
+    position: relative;
+    min-height: 100vh;
+    background: #000000;
+    z-index: 20;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+
+.about-content {
+    width: 85%;
+    max-width: 1200px;
+}
+
+.reveal-text {
+    font-size: 5rem; /* ടെക്സ്റ്റ് വലുപ്പം കൂട്ടി */
+    font-weight: 900;
+    line-height: 1.1;
+    text-transform: uppercase;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* തുടക്കത്തിൽ എല്ലാ ടെക്സ്റ്റും മങ്ങിക്കിടക്കാൻ (Low Opacity) */
+.reveal-text span {
+    color: rgba(255, 255, 255, 0.1);
+    transition: color 0.3s ease;
+}
+
+/* ഹൈലൈറ്റ് ആകുമ്പോൾ വരാനുള്ള വൈറ്റ് കളർ */
+.reveal-text span.active {
+    color: #ffffff;
+}
+
+/* മൊബൈൽ സ്ക്രീനുകൾക്കായി ഫോണ്ട് സൈസ് അഡ്ജസ്റ്റ് ചെയ്യാം */
+@media (max-width: 768px) {
+    .reveal-text {
+        font-size: 2.5rem;
+    }
+}
+/* ലോഗോയ്ക്കും ബട്ടണിനും ട്രാൻസിഷൻ നൽകാൻ */
+.card-logo, .talk-btn {
+    transition: all 0.4s ease;
+}
+
+/* എബൗട്ട് സെക്ഷൻ വരുമ്പോൾ ബട്ടൺ വൈറ്റ് ആക്കാൻ ഒരു ക്ലാസ് */
+.talk-btn.white-mode {
+    background: #ffffff;
+    color: #000000;
+}
+
+/* ലോഗോ ഹൈഡ് ചെയ്യാൻ */
+.card-logo.hidden {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-20px);
+}
+
+
+.services-section {
+    position: relative;
+    min-height: 100vh;
+    background: #000000;
+    color: #ffffff;
+    padding: 100px 8%;
+    /* എബൗട്ട് സെക്ഷൻ പിൻ ചെയ്തത് കൊണ്ട് ഇത് ലെയറിന് മുകളിൽ വരാൻ */
+    z-index: 30; 
+    margin-top: 0;
+}
+
+.section-tag {
+    color: #FFB000;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    margin-bottom: 50px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.service-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 40px;
+    border-radius: 20px;
+    opacity: 1; /* തുടക്കത്തിൽ കാണാൻ വേണ്ടി 1 നൽകുക */
+    transform: translateY(0);
+}
+
+
+.service-card:hover {
+    background: rgba(255, 255, 255, 0.07);
+    border-color: #FFB000;
+    transform: translateY(-10px);
+}
+
+.service-num {
+    font-family: 'Koulen', sans-serif;
+    font-size: 1.2rem;
+    color: #FFB000;
+    display: block;
+    margin-bottom: 20px;
+}
+
+.service-card h4 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+
+.service-card p {
+    color: #888;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.scrolling-text-container {
+    background: #000000;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 25px 0; /* പാഡിംഗ് കുറച്ചു */
+    display: flex;
+    z-index: 25;
+    position: relative;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.scrolling-text {
+    display: flex;
+    white-space: nowrap;
+    animation: scroll-left 25s linear infinite; /* വേഗത അല്പം കൂട്ടി */
+}
+
+.scrolling-text span {
+    font-family: 'Koulen', sans-serif;
+    font-size: 3.5vw; /* വലിപ്പം കുറച്ചു - ഇതാണ് മെയിൻ മാറ്റം */
+    font-weight: 500; /* കട്ടി അല്പം കുറച്ചു */
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 5px; /* അക്ഷരങ്ങൾക്കിടയിലെ അകലം കുറച്ചു */
+    padding-right: 60px; /* വാക്കുകൾക്കിടയിലെ ഗ്യാപ്പ് */
+}
+
+@keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+
+.work-section {
+    position: relative;
+    min-height: 100vh;
+    background-color: #ffffff; /* വൈറ്റ് ബാക്ക്ഗ്രൗണ്ട് */
+    padding: 120px 8%;
+    z-index: 35;
+    color: #000000;
+}
+
+/* പഴയ ഗ്രിഡ് പാറ്റേൺ വീണ്ടും കൊണ്ടുവരാൻ */
+.work-bg-grid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+    background-size: 80px 80px;
+    z-index: -1;
+}
+
+.section-tag-dark {
+    color: #888;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.work-main-title {
+    font-size: 4rem;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 80px;
+}
+
+/* Work Grid Layout */
+.work-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* രണ്ട് കോളമായി കാണിക്കാൻ */
+    gap: 60px 40px;
+}
+
+.work-item {
+    cursor: pointer;
+}
+
+.work-img-box {
+    width: 100%;
+    aspect-ratio: 16/10;
+    background: #f4f4f4;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.work-img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.work-item:hover img {
+    transform: scale(1.05);
+}
+
+.work-category {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #888;
+    text-transform: uppercase;
+}
+
+.work-info h4 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin-top: 5px;
+}
+
+/* മൊബൈലിൽ ഒരു കോളമായി മാറാൻ */
+@media (max-width: 768px) {
+    .work-grid {
+        grid-template-columns: 1fr;
+    }
+    .work-main-title {
+        font-size: 2.5rem;
+    }
+}
+
+
+
+/* ലിങ്ക് സ്റ്റൈൽ മാറ്റാൻ */
+.work-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.work-img-box {
+    position: relative; /* ഓവർലേയ്ക്ക് വേണ്ടി */
+}
+
+/* ഇമേജിന് മുകളിലെ ബ്ലാക്ക് ലെയർ */
+.img-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.img-overlay span {
+    color: #ffffff;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    border: 1px solid #ffffff;
+    padding: 10px 20px;
+    border-radius: 50px;
+    transform: translateY(20px);
+    transition: transform 0.4s ease;
+}
+
+/* ഹോവർ ചെയ്യുമ്പോൾ സംഭവിക്കുന്നത് */
+.work-item:hover .img-overlay {
+    opacity: 1;
+}
+
+.work-item:hover .img-overlay span {
+    transform: translateY(0);
+}
+
+.work-info h4 {
+    transition: color 0.3s ease;
+}
+
+.work-item:hover h4 {
+    color: #FFB000; /* ഹോവർ ചെയ്യുമ്പോൾ ടൈറ്റിലിന് ഗോൾഡ് കളർ */
+}
+
+
+.view-all-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 80px; /* ഗ്രിഡിൽ നിന്നും കൃത്യമായ അകലം */
+}
+
+.view-all-btn {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-decoration: none;
+    color: #000000;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    padding: 18px 35px;
+    border: 1px solid #000000;
+    border-radius: 50px;
+    transition: all 0.4s cubic-bezier(0.2, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.view-all-btn span {
+    z-index: 2;
+}
+
+.view-all-btn svg {
+    transition: transform 0.4s ease;
+    z-index: 2;
+}
+
+/* ഹോവർ ചെയ്യുമ്പോൾ കറുത്ത ബാക്ക്ഗ്രൗണ്ട് വരാൻ */
+.view-all-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background: #000000;
+    transition: width 0.4s ease;
+    z-index: 1;
+}
+
+.view-all-btn:hover {
+    color: #ffffff;
+}
+
+.view-all-btn:hover::before {
+    width: 100%;
+}
+
+.view-all-btn:hover svg {
+    transform: translateX(5px);
+    color: #ffffff;
+}
+
+
+.tools-game-section {
+    min-height: 100vh;
+    background: #ffffff;
+    position: relative;
+    overflow: hidden;
+    z-index: 40;
+    border-top: 1px solid #eee;
+    /* മറ്റ് സെക്ഷനുകൾക്ക് കൊടുത്ത അതേ പാഡിംഗ് ഇവിടെയും നൽകുന്നു */
+    padding: 100px 8% 0 8%; 
+}
+
+
+.tools-game-section .section-tag-dark {
+    position: relative;
+    z-index: 50; /* ഗെയിം ബോളുകൾക്ക് മുകളിൽ വരാൻ */
+    margin-bottom: 30px;
+    display: block;
+}
+.game-container {
+    width: 100%;
+    height: calc(100vh - 100px); /* ടാഗിന് സ്ഥലം വിട്ട് ബാക്കി ഭാഗം ഗെയിമിന് */
+    position: absolute;
+    top: 100px; /* ടാഗിന്റെ താഴെ നിന്ന് ഗെയിം തുടങ്ങാൻ */
+    left: 0;
+}
+
+.tool-ball {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background: #fff;
+    border-radius: 100px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: grab;
+    z-index: 10;
+}
+
+.tool-ball img {
+    width: 60px;
+    height: 60px;
+    pointer-events: none;
+}
+
+.paddle {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 15px;
+    background: #000;
+    border-radius: 20px;
+    z-index: 20;
+}
+
+.game-msg {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #999;
+    letter-spacing: 1px;
+}
+
+
+.tools-header {
+    padding: 100px 8% 0 8%; /* മറ്റ് സെക്ഷനുകളുടെ അതേ മാർജിൻ */
+    position: relative;
+    z-index: 50;
+    pointer-events: none; /* ഗെയിം കളിക്കുമ്പോൾ ഈ ടെക്സ്റ്റ് തടസ്സമാകരുത് */
+}
+
+.game-title {
+    font-size: 3.5rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-top: 20px;
+    text-transform: uppercase;
+}
+
+.game-hint {
+    font-size: 0.9rem;
+    color: #888;
+    margin-top: 15px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* ഒരു ചെറിയ ഇൻഡിക്കേറ്റർ (Optional) */
+.game-hint::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: #FFB000;
+    border-radius: 50%;
+    display: inline-block;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+/* ഗെയിം കണ്ടെയ്നർ അല്പം കൂടി താഴെ നിന്ന് തുടങ്ങാൻ */
+.game-container {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
+
+
+
+/* .footer-section {
+    height: 100vh;
+    background: #0b0b0b;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    z-index: 60;
+} */
+
+
+.footer-section {
+    height: 100vh;
+    background: #0b0b0b;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    /* ഇത് കണ്ടന്റിനെ സെന്ററിലാക്കും */
+    justify-content: center; 
+    align-items: center;
+    overflow: hidden;
+    z-index: 60;
+    padding: 0; /* എക്സ്ട്രാ പാഡിംഗ് ഒഴിവാക്കി */
+}
+#starCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+/* .footer-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    color: #ffffff;
+} */
+
+.footer-content {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    color: #ffffff;
+    /* സെക്ഷന്റെ നടുവിൽ നിൽക്കാൻ */
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-sub {
+    font-size: 1.2rem;
+    color: #ccc;
+    margin-bottom: 40px;
+}
+
+.connect-btn {
+    position: relative;
+    display: inline-block;
+    padding: 40px 80px;
+    font-size: 4rem;
+    color: #ffffff;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 200px;
+    overflow: hidden; /* ഉള്ളിലെ ലെയർ പുറത്ത് പോകാതിരിക്കാൻ */
+    transition: color 0.4s ease;
+    z-index: 10;
+}
+
+/* ഇതാണ് നമ്മുടെ പുതിയ ബാക്ക്ഗ്രൗണ്ട് ലെയർ */
+.btn-fill {
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    background: #ffffff;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0); /* തുടക്കത്തിൽ ചെറുതായിരിക്കും */
+    transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+    z-index: -1; /* ടെക്സ്റ്റിന് അടിയിൽ വരാൻ */
+}
+
+.connect-btn:hover {
+    color: #000000;
+}
+
+.connect-btn:hover .btn-fill {
+    transform: translate(-50%, -50%) scale(1);
+}
+.warning-text {
+    margin-top: 60px;
+    font-size: 0.85rem;
+    color: #666;
+    line-height: 1.6;
+    letter-spacing: 0.5px;
+}
+
+.arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.connect-btn:hover .arrow {
+    transform: translateX(15px);
+}
+
+
+@media (max-width: 768px) {
+    .connect-btn {
+        font-size: 2rem; /* മൊബൈലിൽ ബട്ടൺ സൈസ് കുറച്ചു */
+        padding: 20px 40px;
+    }
+    .footer-sub {
+        font-size: 1rem;
+    }
+}
+
+
+.footer-section {
+    transition: background-color 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* ഹോവർ ചെയ്യുമ്പോൾ ബാക്ക്ഗ്രൗണ്ട് ഗോൾഡ് ആക്കാൻ */
+.footer-section.gold-mode {
+    background-color: #FFB000 !important;
+}
+
+/* ഗ്രിഡ് ലെയർ - തുടക്കത്തിൽ ഒപ്പാസിറ്റി 0 */
+.footer-grid-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(to right, rgba(0, 0, 0, 0.1) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+    background-size: 80px 80px;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    z-index: 5; /* നക്ഷത്രങ്ങൾക്ക് മുകളിൽ */
+    pointer-events: none;
+}
+
+.footer-section.gold-mode .footer-grid-overlay {
+    opacity: 1;
+}
+
+/* നക്ഷത്രങ്ങൾ എപ്പോഴും കാണാൻ */
+#starCanvas {
+    z-index: 2;
+}
+
+/* ബട്ടൺ ഫിൽ - ഗോൾഡ് കളറിന് പകരം ബ്ലാക്ക് ആക്കാം (കാരണം ബാക്ക്ഗ്രൗണ്ട് ഗോൾഡ് ആണല്ലോ) */
+.btn-fill {
+    position: absolute;
+    width: 0;
+    height: 0;
+    background: #000000; /* ബട്ടണിനുള്ളിൽ ബ്ലാക്ക് നിറയട്ടെ */
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+    z-index: -1;
+}
+
+.connect-btn:hover {
+    color: #ffffff;
+    border-color: #000000;
+}
+
+.connect-btn:hover .btn-fill {
+    width: 600px; /* ബട്ടൺ നിറയ്ക്കാൻ പാകത്തിന് */
+    height: 600px;
+}
+
+
+/* ഗോൾഡ് മോഡ് വരുമ്പോൾ ടെക്സ്റ്റ് കളർ മാറാൻ */
+.footer-section.gold-mode .footer-sub,
+.footer-section.gold-mode .warning-text {
+    color: #000000; /* കറുപ്പ് നിറം */
+    transition: color 0.4s ease;
+}
+
+/* പ്രധാന ബട്ടൺ ടെക്സ്റ്റ് (SAY HELLO) */
+.footer-section.gold-mode .connect-btn {
+    border-color: rgba(0, 0, 0, 0.3);
+    color: #000000;
+}
+
+/* ഹോവർ ചെയ്യുമ്പോൾ ബട്ടണിനുള്ളിലെ ബ്ലാക്ക് ഫിൽ വരുമ്പോൾ ടെക്സ്റ്റ് വൈറ്റ് ആവണം */
+.connect-btn:hover .btn-text {
+    color: #ffffff;
+    z-index: 10;
+    position: relative;
+}
+
+/* നക്ഷത്രങ്ങൾ ഗോൾഡ് മോഡിൽ കറുപ്പായി മാറാൻ (Optional - Contrast കൂട്ടാൻ) */
+.footer-section.gold-mode #starCanvas {
+    filter: invert(1); /* വെളുത്ത നക്ഷത്രങ്ങളെ കറുപ്പാക്കും */
+    opacity: 0.3;
+}
+
+.footer-section {
+    /* പഴയ സ്റ്റൈലുകൾ */
+    height: 100vh;
+    display: flex;
+    flex-direction: column; /* ടെക്സ്റ്റ് ബാർ താഴെ വരാൻ */
+    justify-content: space-between; /* കണ്ടന്റിനും ബാറിനും ഇടയിൽ ഗ്യാപ്പ് വരാൻ */
+    padding-bottom: 0; /* ബാറിന് പാഡിംഗ് വേണ്ട */
+}
+
+പുതിയ ഫൂട്ടർ ബാർ
+/* .final-footer-bar {
+    width: 100%;
+    position: relative;
+    padding: 60px 8% 120px 8%; 
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 40px;
+    z-index: 20;
+    color: #ffffff;
+    pointer-events: auto; 
+} */
+
+.final-footer-bar {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 60px 8%; /* വശങ്ങളിൽ കൃത്യമായ ഗ്യാപ്പ് */
+    display: flex;
+    justify-content: space-between; /* സോഷ്യൽ ലെഫ്റ്റിലും ടെക്സ്റ്റ് റൈറ്റിലും വരാൻ */
+    align-items: flex-end; /* രണ്ടും താഴെ ഒരേ ലൈനിൽ നിൽക്കാൻ */
+    z-index: 20;
+}
+
+.final-footer-bar{
+
+     width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 60px 8%; /* വശങ്ങളിൽ കൃത്യമായ ഗ്യാപ്പ് */
+    display: flex;
+    justify-content: space-between; /* സോഷ്യൽ ലെഫ്റ്റിലും ടെക്സ്റ്റ് റൈറ്റിലും വരാൻ */
+    align-items: flex-end; /* രണ്ടും താഴെ ഒരേ ലൈനിൽ നിൽക്കാൻ */
+    z-index: 20;
+}
+
+.left-col {
+    text-align: left;
+}
+
+.left-col p {
+    font-size: 0.9rem;
+    color: #ccc;
+    margin-bottom: 20px;
+}
+
+.social-links {
+    display: flex;
+    gap: 25px;
+    margin-top: 15px;
+    
+}
+
+.social-links a {
+    color: #ffffff;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+.social-links a:hover {
+    transform: translateY(-5px);
+    color: #FFB000; /* ഗോൾഡ് കളർ */
+}
+
+/* വലതുവശം (Thankyou Note) */
+.right-col {
+    text-align: right;
+    font-size: 0.9rem;
+    color: #ccc;
+    line-height: 1.6;
+}
+
+
+/* .massive-name {
+    position: absolute;
+    bottom: -60px; 
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18vw; 
+    font-weight: 900;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.1); 
+    text-transform: uppercase;
+    letter-spacing: -5px;
+    z-index: 10;
+    pointer-events: none; 
+} */
+.massive-name {
+    position: absolute;
+    bottom: -60px; /* സ്ക്രീൻഷോട്ടിലെ പോലെ പേര് പകുതി താഴെ കാണാൻ */
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 25vw;
+    font-weight: 900;
+    color: transparent;
+    
+    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.05); 
+    text-transform: uppercase;
+    letter-spacing: -5px;
+    z-index: -1; 
+    pointer-events: none;
+    line-height: 0.8;
+}
+@media (max-width: 768px) {
+    .final-footer-bar {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding-bottom: 80px;
+    }
+    .right-col {
+        text-align: center;
+    }
+}
+
+
+/* ഗോൾഡ് മോഡ് വരുമ്പോൾ താഴെയുള്ള ടെക്സ്റ്റുകൾ കറുപ്പാക്കാൻ */
+.footer-section.gold-mode .left-col p,
+.footer-section.gold-mode .right-col p,
+.footer-section.gold-mode .social-links a {
+    color: #000000 !important;
+    transition: color 0.4s ease;
+}
+
+/* സോഷ്യൽ ഐക്കണുകൾക്ക് മുകളിൽ മൗസ് വെക്കുമ്പോൾ മാത്രം ചെറിയൊരു മാറ്റം */
+.footer-section.gold-mode .social-links a:hover {
+    opacity: 0.6; /* കറുത്ത ബാക്ക്ഗ്രൗണ്ടിൽ ചെറിയൊരു വേരിയേഷൻ */
+}
+
+/* വലിയ പേരിന്റെ ഔട്ട്‌ലൈനും കറുപ്പാക്കാം, എങ്കിൽ ലുക്ക് കൂടും */
+.footer-section.gold-mode .massive-name {
+    -webkit-text-stroke: 1px rgba(0, 0, 0, 0.1);
+    transition: -webkit-text-stroke 0.4s ease;
+}
+
+/* സോഷ്യൽ ലിങ്ക്സ് കണ്ടെയ്നർ */
+.social-links {
+    display: flex;
+    gap: 20px; /* ഐക്കണുകൾ തമ്മിലുള്ള അകലം */
+    align-items: center;
+    margin-top: 15px;
+}
+
+/* ഓരോ ലിങ്ക് ടാഗും */
+.social-links a {
+    display: inline-block;
+    width: 28px;  /* ഐക്കണിന്റെ വലിപ്പം ഇവിടെ നിയന്ത്രിക്കാം */
+    height: 28px;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+
+.social-links a:hover {
+    transform: translateY(-5px);
+}
+
+
+.social-links a img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+    /* filter: grayscale(100%) brightness(200%);  */
+    transition: all 0.4s ease;
+}
+
+
+
+.footer-section.gold-mode .social-links a:hover img {
+    opacity: 0.7;
+}
+
+
+.social-links i {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.global-nav-container {
+    position: fixed; 
+    bottom: 30px; 
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999; 
+    width: auto;
+}
+
+.global-navbar {
+    background: rgba(11, 11, 11, 0.4); 
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 10px 25px;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* ലിങ്കുകൾ */
+.g-nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 400;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+}
+
+.g-nav-link:hover {
+    opacity: 1;
+    color: #FFB000;
+}
+
+.g-nav-divider {
+    width: 1px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Resume ബട്ടൺ */
+.g-resume-btn {
+    background: #FFB000;
+    color: #000;
+    text-decoration: none;
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.3s ease;
+}
+
+.g-resume-btn:hover {
+    transform: scale(1.05);
+}
+
+
+/* Modal Background */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    backdrop-filter: blur(5px); /* ബാക്ക്ഗ്രൗണ്ട് ബ്ലർ ആക്കാൻ */
+}
+
+/* Modal Content Box */
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto;
+    width: 70%;
+    max-width: 900px;
+    border-radius: 30px;
+    position: relative;
+    overflow: hidden;
+    animation: modalSlideIn 0.4s ease-out;
+}
+
+@keyframes modalSlideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Modal Overlay */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(15px);
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+}
+
+/* Modal Box */
+.modal-content {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 90%;
+    max-width: 900px;
+    padding: 50px;
+    border-radius: 30px;
+    position: relative;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.5);
+}
+
+.modal-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 50px;
+}
+
+/* Typography */
+.modal-info h2 {
+    font-family: 'Koulen', sans-serif;
+    font-size: 3.5rem;
+    line-height: 1;
+    margin: 20px 0;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.modal-info p { color: #aaa; line-height: 1.6; }
+
+/* Form Fields */
+.input-wrap {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.input-wrap input, 
+.input-wrap textarea, 
+.input-wrap select {
+    width: 100%;
+    padding: 12px 0;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+    transition: 0.3s;
+}
+
+.input-wrap label {
+    position: absolute;
+    left: 0;
+    top: 12px;
+    color: rgba(255, 255, 255, 0.4);
+    pointer-events: none;
+    transition: 0.3s;
+}
+
+/* Floating Label Logic */
+.input-wrap input:focus ~ label,
+.input-wrap input:not(:placeholder-shown) ~ label,
+.input-wrap textarea:focus ~ label,
+.input-wrap textarea:not(:placeholder-shown) ~ label {
+    top: -10px;
+    font-size: 0.75rem;
+    color: #fff;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 18px;
+    border-radius: 50px;
+    border: none;
+    background: #fff;
+    color: #000;
+    font-weight: 900;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.submit-btn:hover {
+    transform: scale(1.02);
+    background: #e0e0e0;
+}
+
+.close-btn {
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #555;
+}
+
+@media (max-width: 768px) {
+    .modal-grid { grid-template-columns: 1fr; gap: 30px; }
+    .modal-info h2 { font-size: 2.5rem; }
+    .modal-content { padding: 30px; }
+}   
+
+
+/* --- RESPONSIVE OVERRIDE CODE --- */
+
+@media screen and (max-width: 768px) {
+    /* 1. Body & Container Fix */
+    body {
+        overflow-x: hidden;
+        width: 100%;
+    }
+
+    /* 2. Header & Logo */
+    .navbar {
+        padding: 20px 5%;
+    }
+    .navbar .card-logo {
+        font-size: 50px !important;
+    }
+    .talk-btn {
+        width: 100px;
+        height: 50px;
+        font-size: 0.7rem;
+    }
+
+    /* 3. Hero Card Section */
+    .card-section {
+        height: auto;
+        min-height: 80vh;
+        padding-top: 100px;
+    }
+    .card-container {
+        width: 100%;
+        transform: scale(0.85); /* കാർഡ് സ്ക്രീനിൽ ഒതുങ്ങാൻ */
+    }
+    .parallax-bg-text h1 {
+        font-size: 22vw;
+        top: 40%;
+    }
+    .tag-strap {
+        height: 25vh; /* സ്ട്രാപ്പിന്റെ നീളം കുറച്ചു */
+    }
+
+    /* 4. About Reveal Text */
+    .reveal-text {
+        font-size: 2.2rem; /* വായനാസുഖത്തിന് വലിപ്പം കുറച്ചു */
+        gap: 10px;
+    }
+
+    /* 5. Services & Work Grid */
+    .services-grid, .work-grid {
+        grid-template-columns: 1fr !important; /* ഒറ്റ കോളം ആക്കി */
+        gap: 20px;
+    }
+    .work-main-title {
+        font-size: 2.8rem;
+    }
+
+    /* 6. Gaming Section Fix */
+    .tools-game-section {
+        height: auto;
+        padding: 60px 5%;
+        text-align: center;
+    }
+    .game-container, .paddle, .game-msg, .game-hint {
+        display: none !important; /* ഗെയിം എലമെന്റുകൾ ഫോണിൽ വേണ്ട */
+    }
+    /* ടൂൾ ഐക്കണുകൾ സ്റ്റാറ്റിക് ആയി കാണിക്കാൻ */
+    .tool-ball {
+        position: relative !important;
+        display: inline-flex !important;
+        margin: 10px;
+        left: auto !important;
+        top: auto !important;
+        width: 70px;
+        height: 70px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+    .tool-ball img {
+        width: 45px;
+        height: 45px;
+    }
+    .game-title {
+        font-size: 2.2rem;
+        margin-bottom: 30px;
+    }
+
+    /* 7. Footer Adjustments */
+    .footer-content {
+        padding: 0 20px;
+    }
+    .connect-btn {
+        font-size: 2.2rem;
+        padding: 25px 40px;
+        width: 90%;
+    }
+    .final-footer-bar {
+        position: relative;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        padding: 40px 5% 100px 5%;
+        text-align: center;
+    }
+    .right-col {
+        text-align: center;
+    }
+    .massive-name {
+        font-size: 22vw;
+        bottom: -20px;
+    }
+
+    /* 8. Global Nav (Resume Button Only) */
+    .global-nav-container {
+        bottom: 20px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    .global-navbar {
+        background: rgba(11, 11, 11, 0.85);
+        padding: 8px 15px;
+    }
+    .g-nav-link, .g-nav-divider {
+        display: none !important; /* മറ്റ് ലിങ്കുകൾ മറച്ചു */
+    }
+    .g-resume-btn {
+        padding: 10px 25px;
+        font-size: 0.9rem;
+    }
+
+    /* 9. Contact Modal */
+    .modal-content {
+        width: 95%;
+        padding: 25px;
+        margin: 10% auto;
+    }
+    .modal-grid {
+        grid-template-columns: 1fr;
+    }
+    .modal-info h2 {
+        font-size: 2rem;
+    }
+}
